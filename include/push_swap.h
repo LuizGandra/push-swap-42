@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 12:27:08 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/26 13:37:25 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:10:00 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+// * STATICS
+t_stack				**get_stack_a(void);
+t_stack				**get_stack_b(void);
+
 // * LOAD STACK
 int					read_args(int argc, char *args[]);
 
@@ -44,9 +48,24 @@ void				set_sorted_index(void);
 // * SORT
 void				sort_stack(void);
 
-// * STATICS
-t_stack				**get_stack_a(void);
-t_stack				**get_stack_b(void);
+// * PUSH
+void	pa(void);
+void	pb(void);
+
+// * SWAP
+void	sa(void);
+void	sb(void);
+void	ss(void);
+
+// * ROTATE
+void	ra(void);
+void	rb(void);
+void	rr(void);
+
+// * REVERSE ROTATE
+void	rra(void);
+void	rrb(void);
+void	rrr(void);
 
 // * UTILS
 int					is_zero(char *n);
