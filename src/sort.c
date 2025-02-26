@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 14:32:49 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/26 13:37:58 by lcosta-g         ###   ########.fr       */
+/*   Created: 2025/02/26 12:16:25 by lcosta-g          #+#    #+#             */
+/*   Updated: 2025/02/26 13:39:36 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+void	sort_stack(void)
 {
-	if (argc < 2)
-		return (EXIT_FAILURE);
-	if (!read_args(argc - 1, &argv[1]))
-		throw_error();
-	if (!stack_is_sorted(*get_stack_a()))
-	{
-		set_sorted_index();
-		sort_stack();
-	}
-	clean_stacks();
-	return (EXIT_SUCCESS);
+	t_stack *stack_a;
+	int	size;
+
+	stack_a = *get_stack_a();
+	size = stack_size(stack_a);
+	ft_printf("Size: %i\n", size);
+	// TODO
+	/*
+	if (size == 2)
+		sa();
+	else if (size == 3)
+		sort_three();
+	else
+		sort();
+	*/
 }
+

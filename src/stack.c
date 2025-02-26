@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 12:40:32 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/26 12:14:20 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/26 13:38:01 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,4 @@ void	stack_clear(t_stack **stack)
 	if ((*stack)->next)
 		stack_clear(&(*stack)->next);
 	free(*stack);
-}
-
-int	stack_size(t_stack *stack)
-{
-	if (!stack)
-		return (0);
-	return (1 + stack_size(stack->next));
 }
