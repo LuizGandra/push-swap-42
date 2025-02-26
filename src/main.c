@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:32:49 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/25 19:51:33 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/26 12:14:11 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char *argv[])
 	{
 		if (!read_args(argc - 1, &argv[1]))
 			throw_error();
+		set_sorted_index();
 	}
 	clean_stacks();
 	return (EXIT_SUCCESS);

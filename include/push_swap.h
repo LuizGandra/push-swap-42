@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 12:27:08 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/25 19:52:19 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:57:14 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct s_stack
 {
 	int				value;
-	int				index;
+	int				sorted_i;
 	int				pos;
 	int				target_pos;
 	int				cost_a;
@@ -35,6 +35,10 @@ int					read_args(int argc, char *args[]);
 int					stack_add(t_stack **stack, int n);
 t_stack				*stack_search(t_stack *stack, int n);
 void				stack_clear(t_stack **stack);
+int					stack_size(t_stack *stack);
+
+// * SORTED INDEX
+void				set_sorted_index(void);
 
 // * STATICS
 t_stack				**get_stack_a(void);
