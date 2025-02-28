@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:16:25 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 00:07:52 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:37:13 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	sort_three(void)
 	int		highest_i;
 
 	stack_a = *get_stack_a();
-	highest_i = get_highest_sorted_i(stack_a);
+	highest_i = get_highest_sorted_i_node(stack_a)->sorted_i;
 	if (stack_is_sorted(stack_a))
 		return ;
 	if (stack_a->sorted_i == highest_i)
@@ -48,7 +48,6 @@ static void	sort_three(void)
 	sort_three();
 }
 
-// TODO
 static void	sort(int size)
 {
 	t_stack	*stack_a;
@@ -59,7 +58,6 @@ static void	sort(int size)
 	// * STEP 2: Sort the 3 Numbers Left in Stack A
 	sort_three();
 	stack_b = *get_stack_b();
-	// TODO dando erro aqui??
 	while (stack_size(stack_b) > 0)
 	{
 		// * STEP 3: Calculating Positions
@@ -68,10 +66,13 @@ static void	sort(int size)
 		calculate_costs();
 		// * STEP 5: Execute the Chosen Sequence of Actions
 		execute_cheapest_sequence();
-		stack_b = *get_stack_b(); // !
+		stack_b = *get_stack_b();
 	}
 	// * STEP 6: Rotate Stack A to the Right Position
 	stack_a = *get_stack_a();
 	while (stack_a->sorted_i != 1)
+	{
 		ra();
+		stack_a = *get_stack_a();
+	}
 }

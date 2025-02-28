@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 12:27:08 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/27 20:18:17 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 13:58:52 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+// !
+// TODO REMOVE FROM HERE AND FROM MAIN.C FILE
+void				check_stack(t_stack *stack);
+
 // * STATICS
 t_stack				**get_stack_a(void);
 t_stack				**get_stack_b(void);
@@ -45,7 +49,7 @@ void				stack_clear(t_stack **stack);
 int					stack_size(t_stack *stack);
 int					stack_is_sorted(t_stack *stack);
 void				set_sorted_index(void);
-int					get_highest_sorted_i(t_stack *stack);
+t_stack				*get_highest_sorted_i_node(t_stack *stack);
 
 // * SORT
 void				sort_stack(void);
@@ -59,7 +63,7 @@ void				execute_cheapest_sequence(void);
 // * utils
 void				push_to_stack_b(int *size);
 void				set_stack_positions(t_stack *stack);
-int					calculate_cost_b(t_stack *stack_b);
+int					calculate_cost_b(t_stack *stack_b, int size_b);
 int					calculate_cost_a(t_stack *stack_b, t_stack *stack_a);
 t_stack				*get_cheapest_node(void);
 

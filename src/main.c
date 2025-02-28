@@ -6,26 +6,33 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:32:49 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/26 18:22:16 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:38:41 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // TODO remove
-void	check_stack(void)
+// void	check_stack(t_stack *stack)
+// {
+// 	while (stack)
+// 	{
+// 		ft_printf("	- value: %i, sorted_i: %i, pos: %i, target_pos: %i, cost_a: %i, cost_b: %i\n", stack->value, stack->sorted_i, stack->pos, stack->target_pos, stack->cost_a, stack->cost_b);
+// 		stack = stack->next;
+// 	}
+// }
+
+// TODO remove
+void	check_stack(t_stack *stack)
 {
-	t_stack	*stack_a;
-	
-	stack_a = *get_stack_a();
-	ft_printf("Stack A:\n");
-	while (stack_a)
+	ft_printf("Stack:\n");
+	while (stack)
 	{
-		if (stack_a->next)
-			ft_printf("%d, ", stack_a->value);
+		if (stack->next)
+			ft_printf("%d, ", stack->value);
 		else
-			ft_printf("%d\n", stack_a->value);
-		stack_a = stack_a->next;
+			ft_printf("%d\n", stack->value);
+		stack = stack->next;
 	}
 }
 
@@ -40,7 +47,7 @@ int	main(int argc, char *argv[])
 		set_sorted_index();
 		sort_stack();
 	}
-	check_stack();
+	check_stack(*get_stack_a());
 	clean_stacks();
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:38:46 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/26 18:30:41 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 12:01:42 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ static int	push(t_stack **s_receiver, t_stack **s_sender)
 	if (!*s_sender)
 		return (0);
 	temp = (*s_sender)->next;
-	(*s_sender)->next = *s_receiver;
-	(*s_sender) = temp;
-	(*s_receiver) = (*s_sender);
+	(*s_sender)->next = *s_receiver ;
+	*s_receiver = *s_sender;
+	*s_sender = temp;
 	return (1);
-}
+} 

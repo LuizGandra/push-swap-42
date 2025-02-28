@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:00:58 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/27 23:39:59 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 13:45:10 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,11 @@ void	set_stack_positions(t_stack *stack)
 	}
 }
 
-int	calculate_cost_b(t_stack *stack_b)
+int	calculate_cost_b(t_stack *stack_b, int size_b)
 {
-	int		size_b;
-	float	middle_i;
+	int middle_i;
 
-	size_b = stack_size(stack_b);
-	middle_i = size_b / 2.0;
+	middle_i = size_b / 2;
 	if (stack_b->pos <= middle_i)
 		return (stack_b->pos);
 	else
@@ -46,14 +44,14 @@ int	calculate_cost_b(t_stack *stack_b)
 int	calculate_cost_a(t_stack *stack_b, t_stack *stack_a)
 {
 	int		size_a;
-	float	middle_i;
+	int		middle_i;
 
 	size_a = stack_size(stack_a);
-	middle_i = size_a / 2.0;
+	middle_i = size_a / 2;
 	if (stack_b->target_pos <= middle_i)
 		return (stack_b->target_pos);
 	else
-		return (stack_b->pos - size_a);
+		return (stack_b->target_pos - size_a);
 }
 
 t_stack	*get_cheapest_node(void)

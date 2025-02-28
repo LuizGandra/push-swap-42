@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 11:58:56 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/27 23:59:51 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:35:24 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,16 @@ static void	finish_sequence(t_stack *cheapest_node);
 void	fill_stack_b(int *size)
 {
 	t_stack	*stack_a;
-	float	middle_i;
+	int		middle_i;
+	int		target_size;
 
 	stack_a = *get_stack_a();
-	middle_i = *size / 2.0;
-	while (*size > (int)middle_i + 1)
+	middle_i = *size / 2;
+	if (*size % 2 == 0)
+		target_size = middle_i + 1;
+	else
+		target_size = middle_i + 2;
+	while (*size > target_size)
 	{
 		stack_a = *get_stack_a();
 		if (stack_a->sorted_i < middle_i)
@@ -33,22 +38,22 @@ void	fill_stack_b(int *size)
 		push_to_stack_b(size);
 }
 
-// TODO maybe this or other functions have an error because they already have values ​​assigned, unlike the first execution
-// TODO revisar essa função (PARTE 3 DO PDF), acho que tá errada
 void	calculate_positions(void)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	t_stack	*target;
+	t_stack	*highest_i;
 
 	stack_a = *get_stack_a();
 	stack_b = *get_stack_b();
 	set_stack_positions(stack_a);
 	set_stack_positions(stack_b);
+	highest_i = get_highest_sorted_i_node(stack_a);
 	while (stack_b)
 	{
 		stack_a = *get_stack_a();
-		target = stack_a;
+		target = highest_i;
 		while (stack_a)
 		{
 			if ((stack_a->sorted_i < target->sorted_i)
@@ -63,17 +68,17 @@ void	calculate_positions(void)
 
 void	calculate_costs(void)
 {
+	int		size;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
 	stack_a = *get_stack_a();
 	stack_b = *get_stack_b();
+	size = stack_size(stack_b);
 	while (stack_b)
 	{
-		stack_b->cost_b = calculate_cost_b(stack_b);
+		stack_b->cost_b = calculate_cost_b(stack_b, size);
 		stack_b->cost_a = calculate_cost_a(stack_b, stack_a);
-		ft_printf("stack_b->cost_b = %i\n", stack_b->cost_b);
-		ft_printf("stack_b->cost_a = %i\n", stack_b->cost_a);
 		stack_b = stack_b->next;
 	}
 }
@@ -92,7 +97,6 @@ void	execute_cheapest_sequence(void)
 				rr();
 				cheapest_node->cost_a--;
 				cheapest_node->cost_b--;
-				
 			}
 			else
 			{
@@ -110,7 +114,6 @@ static void	finish_sequence(t_stack *cheapest_node)
 {
 	while (cheapest_node->cost_a)
 	{
-		break;
 		if (cheapest_node->cost_a > 0)
 		{
 			ra();
@@ -124,7 +127,6 @@ static void	finish_sequence(t_stack *cheapest_node)
 	}
 	while (cheapest_node->cost_b)
 	{
-		break;
 		if (cheapest_node->cost_b > 0)
 		{
 			rb();
