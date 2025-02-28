@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:27:27 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/26 13:37:11 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 00:05:49 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,18 @@ void	set_sorted_index(void)
 		if (smallest)
 			smallest->sorted_i = ++i;
 	}
+}
+
+int	get_highest_sorted_i(t_stack *stack)
+{
+	int highest_i;
+
+	highest_i = 0;
+	while (stack)
+	{
+		if (stack->sorted_i > highest_i)
+			highest_i = stack->sorted_i;
+		stack = stack->next;
+	}
+	return (highest_i);
 }

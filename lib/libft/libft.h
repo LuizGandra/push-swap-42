@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:21:31 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/25 12:26:46 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/27 15:52:38 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 
 char				*get_next_line(int fd);
+
+int					ft_abs(int n);
 
 #endif

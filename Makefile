@@ -20,6 +20,8 @@ SRCS := \
 	push.c \
 	reverse_rotate.c \
 	rotate.c \
+	sort_steps_utils.c \
+	sort_steps.c \
 	sort.c \
 	stack_utils.c \
 	stack.c \
