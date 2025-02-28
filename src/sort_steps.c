@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 11:58:56 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 15:35:24 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 16:14:04 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,17 @@ void	calculate_positions(void)
 	{
 		stack_a = *get_stack_a();
 		target = highest_i;
-		while (stack_a)
+		if (stack_b->sorted_i > highest_i->sorted_i)
+			target = get_lowest_sorted_i_node(stack_a);
+		else
 		{
-			if ((stack_a->sorted_i < target->sorted_i)
+			while (stack_a)
+			{
+				if ((stack_a->sorted_i < target->sorted_i)
 				&& (stack_a->sorted_i > stack_b->sorted_i))
 				target = stack_a;
-			stack_a = stack_a->next;
+				stack_a = stack_a->next;
+			}
 		}
 		stack_b->target_pos = target->pos;
 		stack_b = stack_b->next;

@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 12:27:08 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 13:58:52 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 16:13:54 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int					stack_size(t_stack *stack);
 int					stack_is_sorted(t_stack *stack);
 void				set_sorted_index(void);
 t_stack				*get_highest_sorted_i_node(t_stack *stack);
+t_stack				*get_lowest_sorted_i_node(t_stack *stack);
 
 // * SORT
 void				sort_stack(void);

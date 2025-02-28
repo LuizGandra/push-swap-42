@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:27:27 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 13:59:31 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 16:13:56 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,18 @@ t_stack	*get_highest_sorted_i_node(t_stack *stack)
 		stack = stack->next;
 	}
 	return (highest_i);
+}
+
+t_stack	*get_lowest_sorted_i_node(t_stack *stack)
+{
+	t_stack	*lowest;
+
+	lowest = NULL;
+	while (stack)
+	{
+		if (!lowest || stack->sorted_i < lowest->sorted_i)
+			lowest = stack;
+		stack = stack->next;
+	}
+	return (lowest);
 }
