@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:38:53 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 20:11:51 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/03/01 12:40:43 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,18 @@ static int	swap(t_stack **stack);
 
 void	sa(void)
 {
-	if (swap(get_stack_a()))
-		ft_printf("sa\n");
+	swap(get_stack_a());
 }
 
 void	sb(void)
 {
-	if (swap(get_stack_b()))
-		ft_printf("sb\n");
+	swap(get_stack_b());
 }
 
 void	ss(void)
 {
-	if (swap(get_stack_a()) && swap(get_stack_b()))
-		ft_printf("ss\n");
+	swap(get_stack_a());
+	swap(get_stack_b());
 }
 
 static int	swap(t_stack **stack)

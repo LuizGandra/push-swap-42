@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 12:27:08 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 23:26:25 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/03/01 13:17:45 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ int					stack_is_sorted(t_stack *stack);
 void				set_sorted_index(void);
 void				clean_stacks(void);
 
+// * INSTRUCTIONS
+char				*read_instruction(void);
+int					run_instruction(char *instruction);
+
 // * PUSH
 void				pa(void);
 void				pb(void);
@@ -70,5 +74,6 @@ void				throw_error(void);
 
 // * UTILS
 int					is_zero(char *n);
+int					is_valid_number(char *str);
 
 #endif

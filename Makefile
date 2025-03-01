@@ -44,6 +44,7 @@ SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
 SRCS_BONUS := \
 	main_bonus.c \
 	error_bonus.c \
+	instructions.c \
 	load_stack_bonus.c \
 	push_bonus.c \
 	reverse_rotate_bonus.c \
@@ -56,7 +57,7 @@ SRCS_BONUS := \
 SRCS_BONUS := $(addprefix $(SRC_DIR_BONUS)/, $(SRCS_BONUS))
 
 OBJS := $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
-OBJS_BONUS := $(addprefix $(OBJ_DIR_BONUS)/, $(notdir $(SRCS:.c=.o)))
+OBJS_BONUS := $(addprefix $(OBJ_DIR_BONUS)/, $(notdir $(SRCS_BONUS:.c=.o)))
 
 VALGRIND := valgrind
 VALGRIND_FLAGS := --leak-check=full --show-leak-kinds=all --track-origins=yes

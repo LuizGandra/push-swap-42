@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 21:25:31 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 23:23:43 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/03/01 00:07:45 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,22 @@ int	is_zero(char *n)
 	{
 		if (n[i++] != '0')
 			return (0);
+	}
+	return (1);
+}
+
+int	is_valid_number(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
 	}
 	return (1);
 }

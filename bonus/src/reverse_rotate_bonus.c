@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:38:10 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 20:11:47 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/03/01 12:41:55 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,18 @@ static int	reverse_rotate(t_stack **stack);
 
 void	rra(void)
 {
-	if (reverse_rotate(get_stack_a()))
-		ft_printf("rra\n");
+	reverse_rotate(get_stack_a());
 }
 
 void	rrb(void)
 {
-	if (reverse_rotate(get_stack_b()))
-		ft_printf("rrb\n");
+	reverse_rotate(get_stack_b());
 }
 
 void	rrr(void)
 {
-	if (reverse_rotate(get_stack_a()) && reverse_rotate(get_stack_b()))
-		ft_printf("rrr\n");
+	reverse_rotate(get_stack_a());
+	reverse_rotate(get_stack_b());
 }
 
 static int	reverse_rotate(t_stack **stack)

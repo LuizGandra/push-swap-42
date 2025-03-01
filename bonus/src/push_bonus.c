@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:38:46 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 20:11:42 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/03/01 12:53:41 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,12 @@ static int	push(t_stack **s_receiver, t_stack **s_sender);
 
 void	pa(void)
 {
-	if (push(get_stack_a(), get_stack_b()))
-		ft_printf("pa\n");
+	push(get_stack_a(), get_stack_b());
 }
 
 void	pb(void)
 {
-	if (push(get_stack_b(), get_stack_a()))
-		ft_printf("pb\n");
+	push(get_stack_b(), get_stack_a());
 }
 
 static int	push(t_stack **s_receiver, t_stack **s_sender)
