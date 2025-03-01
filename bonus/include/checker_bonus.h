@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 12:27:08 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 23:04:32 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 23:26:25 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # include "libft.h"
 # include <limits.h>
@@ -44,25 +44,7 @@ int					stack_size(t_stack *stack);
 // * utils
 int					stack_is_sorted(t_stack *stack);
 void				set_sorted_index(void);
-t_stack				*get_highest_sorted_i_node(t_stack *stack);
-t_stack				*get_lowest_sorted_i_node(t_stack *stack);
 void				clean_stacks(void);
-
-// * SORT
-void				sort_stack(void);
-
-// * SORT STEPS
-void				fill_stack_b(int *size);
-void				calculate_positions(void);
-void				calculate_costs(void);
-void				execute_cheapest_sequence(void);
-
-// * utils
-void				push_to_stack_b(int *size);
-void				set_stack_positions(t_stack *stack);
-int					calculate_cost_b(t_stack *stack_b, int size_b);
-int					calculate_cost_a(t_stack *stack_b, t_stack *stack_a);
-t_stack				*get_cheapest_node(void);
 
 // * PUSH
 void				pa(void);
@@ -88,10 +70,5 @@ void				throw_error(void);
 
 // * UTILS
 int					is_zero(char *n);
-int					is_same_sign(int a, int b);
-int					is_valid_number(char *str);
-void				update_target(t_stack *stack_a, t_stack *stack_b,
-						t_stack **target);
-void				run_action(int *cost, char stack);
 
 #endif

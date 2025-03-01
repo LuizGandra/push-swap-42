@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:38:46 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 12:01:42 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 16:21:14 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,4 @@ static int	push(t_stack **s_receiver, t_stack **s_sender)
 	*s_receiver = *s_sender;
 	*s_sender = temp;
 	return (1);
-} 
+}

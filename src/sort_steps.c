@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 11:58:56 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 16:14:04 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 19:12:29 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,11 @@ void	fill_stack_b(int *size)
 
 	stack_a = *get_stack_a();
 	middle_i = *size / 2;
-	if (*size % 2 == 0)
-		target_size = middle_i + 1;
-	else
-		target_size = middle_i + 2;
+	target_size = middle_i + 1;
 	while (*size > target_size)
 	{
 		stack_a = *get_stack_a();
-		if (stack_a->sorted_i < middle_i)
+		if (stack_a->sorted_i <= middle_i)
 			push_to_stack_b(size);
 		else
 			ra();
@@ -43,26 +40,22 @@ void	calculate_positions(void)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	t_stack	*target;
-	t_stack	*highest_i;
 
 	stack_a = *get_stack_a();
 	stack_b = *get_stack_b();
 	set_stack_positions(stack_a);
 	set_stack_positions(stack_b);
-	highest_i = get_highest_sorted_i_node(stack_a);
 	while (stack_b)
 	{
 		stack_a = *get_stack_a();
-		target = highest_i;
-		if (stack_b->sorted_i > highest_i->sorted_i)
+		target = get_highest_sorted_i_node(stack_a);
+		if (stack_b->sorted_i > target->sorted_i)
 			target = get_lowest_sorted_i_node(stack_a);
 		else
 		{
 			while (stack_a)
 			{
-				if ((stack_a->sorted_i < target->sorted_i)
-				&& (stack_a->sorted_i > stack_b->sorted_i))
-				target = stack_a;
+				update_target(stack_a, stack_b, &target);
 				stack_a = stack_a->next;
 			}
 		}
@@ -118,29 +111,7 @@ void	execute_cheapest_sequence(void)
 static void	finish_sequence(t_stack *cheapest_node)
 {
 	while (cheapest_node->cost_a)
-	{
-		if (cheapest_node->cost_a > 0)
-		{
-			ra();
-			cheapest_node->cost_a--;
-		}
-		else
-		{
-			rra();
-			cheapest_node->cost_a++;
-		}
-	}
+		run_action(&cheapest_node->cost_a, 'a');
 	while (cheapest_node->cost_b)
-	{
-		if (cheapest_node->cost_b > 0)
-		{
-			rb();
-			cheapest_node->cost_b--;
-		}
-		else
-		{
-			rrb();
-			cheapest_node->cost_b++;
-		}
-	}
+		run_action(&cheapest_node->cost_b, 'b');
 }

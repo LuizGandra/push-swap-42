@@ -1,46 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   push_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 14:38:53 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 16:21:26 by lcosta-g         ###   ########.fr       */
+/*   Created: 2025/02/24 14:38:46 by lcosta-g          #+#    #+#             */
+/*   Updated: 2025/02/28 20:11:42 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
-static int	swap(t_stack **stack);
+static int	push(t_stack **s_receiver, t_stack **s_sender);
 
-void	sa(void)
+void	pa(void)
 {
-	if (swap(get_stack_a()))
-		ft_printf("sa\n");
+	if (push(get_stack_a(), get_stack_b()))
+		ft_printf("pa\n");
 }
 
-void	sb(void)
+void	pb(void)
 {
-	if (swap(get_stack_b()))
-		ft_printf("sb\n");
+	if (push(get_stack_b(), get_stack_a()))
+		ft_printf("pb\n");
 }
 
-void	ss(void)
-{
-	if (swap(get_stack_a()) && swap(get_stack_b()))
-		ft_printf("ss\n");
-}
-
-static int	swap(t_stack **stack)
+static int	push(t_stack **s_receiver, t_stack **s_sender)
 {
 	t_stack	*temp;
 
-	if (!*stack || !(*stack)->next)
+	if (!*s_sender)
 		return (0);
-	temp = (*stack)->next;
-	(*stack)->next = temp->next;
-	temp->next = *stack;
-	*stack = temp;
+	temp = (*s_sender)->next;
+	(*s_sender)->next = *s_receiver ;
+	*s_receiver = *s_sender;
+	*s_sender = temp;
 	return (1);
 }

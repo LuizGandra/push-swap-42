@@ -1,50 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   swap_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 14:38:41 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 16:22:44 by lcosta-g         ###   ########.fr       */
+/*   Created: 2025/02/24 14:38:53 by lcosta-g          #+#    #+#             */
+/*   Updated: 2025/02/28 20:11:51 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
-static int	rotate(t_stack **stack);
+static int	swap(t_stack **stack);
 
-void	ra(void)
+void	sa(void)
 {
-	if (rotate(get_stack_a()))
-		ft_printf("ra\n");
+	if (swap(get_stack_a()))
+		ft_printf("sa\n");
 }
 
-void	rb(void)
+void	sb(void)
 {
-	if (rotate(get_stack_b()))
-		ft_printf("rb\n");
+	if (swap(get_stack_b()))
+		ft_printf("sb\n");
 }
 
-void	rr(void)
+void	ss(void)
 {
-	if (rotate(get_stack_a()) && rotate(get_stack_b()))
-		ft_printf("rr\n");
+	if (swap(get_stack_a()) && swap(get_stack_b()))
+		ft_printf("ss\n");
 }
 
-static int	rotate(t_stack **stack)
+static int	swap(t_stack **stack)
 {
 	t_stack	*temp;
-	t_stack	*ptr;
 
 	if (!*stack || !(*stack)->next)
 		return (0);
-	temp = *stack;
-	(*stack) = (*stack)->next;
-	temp->next = NULL;
-	ptr = *stack;
-	while (ptr->next)
-		ptr = ptr->next;
-	ptr->next = temp;
+	temp = (*stack)->next;
+	(*stack)->next = temp->next;
+	temp->next = *stack;
+	*stack = temp;
 	return (1);
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_stack.c                                       :+:      :+:    :+:   */
+/*   load_stack_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 21:26:09 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 23:25:39 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 23:25:52 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 static int	save_numbers(char *numbers[]);
 

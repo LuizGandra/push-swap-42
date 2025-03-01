@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:16:25 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 16:15:18 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 19:39:40 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,27 +52,26 @@ static void	sort(int size)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		middle_i;
 
-	// * STEP 1: Send Everything to Stack B
 	fill_stack_b(&size);
-	// * STEP 2: Sort the 3 Numbers Left in Stack A
 	sort_three();
 	stack_b = *get_stack_b();
 	while (stack_size(stack_b) > 0)
 	{
-		// * STEP 3: Calculating Positions
 		calculate_positions();
-		// * STEP 4: Calculating the Cheapest Action Cost
 		calculate_costs();
-		// * STEP 5: Execute the Chosen Sequence of Actions
 		execute_cheapest_sequence();
 		stack_b = *get_stack_b();
 	}
-	// * STEP 6: Rotate Stack A to the Right Position
 	stack_a = *get_stack_a();
+	middle_i = stack_size(stack_a) / 2;
 	while (stack_a->sorted_i != 1)
 	{
-		ra();
+		if (stack_a->sorted_i > middle_i)
+			ra();
+		else
+			rra();
 		stack_a = *get_stack_a();
 	}
 }

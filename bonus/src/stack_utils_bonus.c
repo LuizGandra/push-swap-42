@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   stack_utils_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:27:27 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/28 23:03:06 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 23:24:11 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 int	stack_is_sorted(t_stack *stack)
 {
@@ -44,34 +44,6 @@ void	set_sorted_index(void)
 		if (smallest)
 			smallest->sorted_i = ++i;
 	}
-}
-
-t_stack	*get_highest_sorted_i_node(t_stack *stack)
-{
-	t_stack	*highest_i;
-
-	highest_i = NULL;
-	while (stack)
-	{
-		if (!highest_i || stack->sorted_i > highest_i->sorted_i)
-			highest_i = stack;
-		stack = stack->next;
-	}
-	return (highest_i);
-}
-
-t_stack	*get_lowest_sorted_i_node(t_stack *stack)
-{
-	t_stack	*lowest;
-
-	lowest = NULL;
-	while (stack)
-	{
-		if (!lowest || stack->sorted_i < lowest->sorted_i)
-			lowest = stack;
-		stack = stack->next;
-	}
-	return (lowest);
 }
 
 void	clean_stacks(void)

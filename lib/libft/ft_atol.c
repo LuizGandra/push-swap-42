@@ -6,16 +6,17 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:09:59 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/24 20:10:34 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 22:56:53 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-int	ft_atol(const char *nptr)
+long long	ft_atol(const char *nptr)
 {
-	long	n;
-	int		sign;
+	long long	n;
+	int			sign;
 
 	n = 0;
 	sign = 1;

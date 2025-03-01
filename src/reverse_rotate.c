@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:38:10 by lcosta-g          #+#    #+#             */
-/*   Updated: 2025/02/26 18:29:39 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2025/02/28 16:20:10 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	rrr(void)
 static int	reverse_rotate(t_stack **stack)
 {
 	t_stack	*old_top;
-	t_stack *temp;
+	t_stack	*temp;
 	t_stack	*ptr;
 
 	if (!*stack || !(*stack)->next)
