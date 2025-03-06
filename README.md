@@ -46,9 +46,9 @@ Push Swap comprises two programs: `push_swap`, which generates instructions to s
 
 ### Prerequisites
 
-- C compiler (e.g., `clang`)
-- `make` utility
-- `libft` library in the `lib/libft` directory
+- C compiler (e.g., `clang`).
+- `make` utility.
+- `libft` library in the `lib/libft` directory.
 
 ### How to Build and Run
 
