@@ -2,7 +2,7 @@
 
 Push Swap is a project from the [42 São Paulo](https://www.42sp.org.br/) Common Core curriculum. It involves developing an algorithm to sort a stack of integers using a limited set of operations and two stacks.
 
-**Special thanks to [mcombeau](https://github.com/mcombeau) for developing an excellent guide that greatly assisted in understanding and solving this project.**
+**Special thanks to [mcombeau](https://github.com/mcombeau)** for developing an excellent guide that greatly assisted in understanding and solving this project.
 
 ![42 São Paulo](https://img.shields.io/badge/42-São_Paulo-black?style=flat-square&logo=42)
 
