@@ -86,7 +86,7 @@ Push Swap comprises two programs: `push_swap`, which generates instructions to s
 #### Additional commands
 
 - `make clean`: remove object files.
-- `make fclean`: remove `libft.a` and object files.
+- `make fclean`: remove the program and object files.
 - `make re`: rebuild everything.
 
 ## Project Structure
